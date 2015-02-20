@@ -12,12 +12,12 @@ router.get('/', function (req, res, next) {
 router.post('/bitbucket', function (req, res, next) {
     var userMap = {
         'nidheeshdas': 'root',
-        'Sruthikv': 'Sruthi_KV',
-        'sajma': 'Sajma_TV',
-        'Krishnapriya110': 'Krishnapriya',
-        'hashbeer': 'Hashbeer_A_P',
+        'Sruthikv': 'sruthi',
+        'sajma': 'sajma',
+        'Krishnapriya110': 'krishnapriya',
+        'hashbeer': 'hashbeer',
         'harsharajan': 'Harsha_Rajan',
-        'nirandas': 'Nirandas_Thavorath'
+        'nirandas': 'nirandas'
     };
 
     var payload = req.body.payload;
@@ -30,7 +30,7 @@ router.post('/bitbucket', function (req, res, next) {
         for (var i = 0; i < payload.commits.length; i++) {
             var bburl = payload.canon_url + payload.repository.absolute_url;
             var commit = payload.commits[i];
-            var comment = runAs + ': [' + commit.node + '|' + bburl + 'commits/' + commit.raw_node + '] - ' + commit.message;
+            var comment = runAs + ' [' + commit.node + '|' + bburl + 'commits/' + commit.raw_node + '] - ' + commit.message;
 
             var regex = /[A-Z]{3}-[0-9]*/g;
             var issueIds = [];
